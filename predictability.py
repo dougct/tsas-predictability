@@ -246,7 +246,7 @@ def regularity(sequence):
     if len(set(sequence)) == len(sequence):
         return .0
 
-    return round(100.0 - len(set(sequence)) * 100 / len(sequence), 2)
+    return 100.0 - len(set(sequence)) * 100 / len(sequence)
 
 
 def stationarity(sequence):
@@ -277,7 +277,7 @@ def stationarity(sequence):
     for i in range(1, len(sequence)):
         if sequence[i - 1] == sequence[i]:
             stationary_transitions += 1
-    return round(stationary_transitions * 100 / (len(sequence) - 1), 2)
+    return stationary_transitions * 100 / (len(sequence) - 1)
 
 
 def _suffix_array_manber_myers(s):
@@ -339,5 +339,4 @@ def diversity(sequence):
     total_substrs = (n * (n + 1)) // 2
     distinct_substrs = total_substrs - sum(lcp) 
     return distinct_substrs / total_substrs
-
 
